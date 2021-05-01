@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+}
+
+body{
+	background-color: #f5f6fa;
+	/*background-image: url("images/covidwallpaper.jpg");*/
+}
+
+h1{
+	font-family: 'Orelega One', cursive;
+}
+
+.app{
+	display: flex;
+	justify-content: space-evenly;
+
+}
+
+.app__header{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    justify-content: space-between;
+
+}
+
+.app__left{
+	flex: 0.9;
+}
+
+.app__stats{
+	display: flex;
+	justify-content: space-between;;
+}
+
+.app, .app__header, .app__stats, .map{
+	padding: 20px;
+
+}
+
+@media(max-width: 990px){
+	.app{
+		flex-direction: column;
+	}
+}
