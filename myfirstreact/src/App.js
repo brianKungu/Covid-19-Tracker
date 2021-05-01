@@ -5,6 +5,7 @@ import Map from './Map';
 import "./App.css";
 import Table from "./Table";
 import {sortData} from "./util";
+import LineGraph from './LineGraph';
 
 function App() {
     const [countries, setCountries]=useState([]);
@@ -33,12 +34,12 @@ function App() {
         }
         getCountriesData();
     },[]);
-    
+
     const onCountryChange = async(event) => {
         const countryCode = event.target.value
 ;        setCountry(countryCode);
 
-        const url = countryCode === 'worldwide' 
+        const url = countryCode === 'worldwide'
         ? "https://disease.sh/v3/covid-19/all"
         : `https://disease.sh/v3/covid-19/countries/${countryCode}`;
 
@@ -60,14 +61,14 @@ function App() {
                     <h1>COVID-19 TRACKER</h1>
                     <FormControl className="app__dropdown">
                         <Select variant="outlined" onChange={onCountryChange} value={country}>
-                           
+
                             <MenuItem value="worldwide">Worldwide</MenuItem>
                             {countries.map((country)=>(
                                 <MenuItem value={country.value}>
                                     {country.name}
                                 </MenuItem>
                             ))}
-                            
+
                         </Select>
                     </FormControl>
                 </div>
@@ -76,8 +77,8 @@ function App() {
                     <InfoBox title="Coronavirus Cases" cases={countryInfo.todayCases} total={countryInfo.cases} />
                     <InfoBox title="Recovered" cases={countryInfo.todayRecovered} total={countryInfo.recovered} />
                     <InfoBox title="Deaths" cases={countryInfo.todayDeaths} total={countryInfo.deaths} />
-                </div> 
-                <Map /> 
+                </div>
+                <Map />
             </Card>
 
             <Card className="app__right">
@@ -87,7 +88,7 @@ function App() {
                     <h3>Worldwide New Cases</h3>
                 </CardContent>
             </Card>
-                
+
         </div>
     )
 }
