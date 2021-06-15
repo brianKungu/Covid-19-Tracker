@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
 import { Line } from 'react-chartjs-2';
 import numeral from 'numeral';
 
@@ -43,7 +44,7 @@ const options = {
 
    },
 };
-const buidChartData = (data, casesType='cases') => {
+const buildChartData = (data, casesType='cases') => {
   let chartData = [];
   let lastDataPoint;
   for(let date in data.cases) {
@@ -74,7 +75,7 @@ function LineGraph() {
            let chartData = buildChartData(data, "cases");
            setData(chartData);
 
-         });
+        }));
     };
     fetchData();
   },[]);
@@ -82,16 +83,20 @@ function LineGraph() {
 
   return (
     <div>
-    {data?.length > 0 && (
-      <Line
-        options={options}
-        data={{
-          datasets:[{
-            backgroudColor:"rgba(284, 16, 50, 0)",
-            borderColor:"#cc1034",
-            data:data,
-          }]}}; />
-    )}
+      <h1>Im a graph</h1>
+      {data.length > 0 && (
+        <Line
+          options={options}
+          data={{
+            datasets:[
+              {
+              backgroudColor:"rgba(284, 16, 50, 0)",
+              borderColor:"#cc1034",
+              data:data,
+            },],
+          }} 
+        />
+      )}
 
     </div>
   )
