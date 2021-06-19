@@ -83,23 +83,22 @@ function LineGraph() {
 
   return (
     <div>
-      <h1>Im a graph</h1>
       {data.length > 0 && (
         <Line
-          options={options}
           data={{
-            datasets:[
+            datasets: [
               {
-              backgroudColor:"rgba(284, 16, 50, 0)",
-              borderColor:"#cc1034",
-              data:data,
-            },],
-          }} 
+                backgroundColor: "rgba(204, 16, 52, 0.5)",
+                borderColor: "#CC1034",
+                data: data,
+              },
+            ],
+          }}
+          options={options}
         />
       )}
-
     </div>
-  )
+  );
 }
 
 export default LineGraph;
